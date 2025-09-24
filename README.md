@@ -1,35 +1,34 @@
-# subapp apresentation:
+# subapp presentation
 
 subapp is a SaaS platform built with **Next.js**, **React**, **Supabase**, **Vercel serverless functions**, and **Stripe payments**.  
-that users can register, subscribe to plans, manage, and access premium content based on their subscription status.
+it allows users to **register**, **subscribe to plans**, **manage subscriptions**, and **access premium content** based on their subscription status 💳⚡.
 
 ---
 
-## 🚀 technologies that i used
+## 🚀 technologies used
 
-- frontend: next.js + react + tailwindcss
-- backend: serverless api routes on vercel
-- database & auth: supabase (postgresql + auth + storage)
-- payments: stripe (checkout + webhooks)
-- local dev environment: docker + docker compose]
-
+- frontend: next.js + react + tailwindcss 🟦  
+- backend: serverless api routes on vercel ⚡  
+- database & auth: supabase (postgresql + auth + storage) 🗄️  
+- payments: stripe (checkout + webhooks) 💳  
+- local dev environment: docker + docker compose 🐳
 
 ## 📦 project structure
 
 ```text
-/project
+/project  
  ├── /pages
- │    ├── index.tsx          # Landing page
- │    ├── login.tsx          # Login page
- │    ├── register.tsx       # Registration page
- │    ├── dashboard.tsx      # Protected user dashboard
+ │    ├── index.tsx          # landing page 🏠
+ │    ├── login.tsx          # login page 🔑
+ │    ├── register.tsx       # registration page 📝
+ │    ├── dashboard.tsx      # protected user dashboard 📊
  │    └── /api
- │         ├── checkout.ts   # Stripe checkout session creation
- │         └── webhook.ts    # Stripe webhook to update subscription status
- ├── /components             # React components
+ │         ├── checkout.ts   # stripe checkout session creation 💳
+ │         └── webhook.ts    # stripe webhook to update subscription status 🔔
+ ├── /components             # react components 🧩
  ├── /lib
- │    └── supabaseClient.ts  # Supabase client initialization
- └── docker-compose.yml      # Local development environment (Postgres + pgAdmin)
+ │    └── supabaseClient.ts  # supabase client initialization 💻
+ └── docker-compose.yml      # local dev environment (postgres + pgadmin) 🐳
 ```
 
 ## 🏗 worflow explanation
@@ -70,15 +69,15 @@ sequenceDiagram
     db-->>f: status active
     f-->>u: grant access to premium content
 ```
+# explanation:
 
-explanation:
+- 🔹 step 1: user signs up or logs in via supabase auth.  
+- 🔹 step 2: dashboard access is protected; backend checks subscription status.  
+- 🔹 step 3: clicking “subscribe” triggers a vercel function to create a stripe checkout session.  
+- 🔹 step 4: user completes payment in stripe.  
+- 🔹 step 5: stripe sends a webhook; backend updates supabase subscription status.  
+- 🔹 step 6: user can now access premium content if subscription is active.
 
-- step 1: user signs up or logs in via supabase auth.
-- step 2: dashboard access is protected; backend checks subscription status.
-- step 3: clicking “subscribe” triggers a vercel function to create a stripe checkout session.
-- step 4: user completes payment in stripe.
-- step 5: stripe sends a webhook; backend updates supabase subscription status.
-- step 6: user can now access premium content if subscription is active.
 
 ## 🛠 local setup
 
