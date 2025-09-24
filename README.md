@@ -97,12 +97,12 @@ STRIPE_SECRET_KEY=...
 STRIPE_WEBHOOK_SECRET=...
 ```
 
-3. start docker compose (postgres + pgadmin):
+3. start docker compose (postgres + pgadmin) 🐳: 
 ```bash
 docker compose up -d
 ```
 
-4. install dependencies and run next.js:
+4. install dependencies and run next.js 🟦:
 ```bash
 npm install
 npm run dev
