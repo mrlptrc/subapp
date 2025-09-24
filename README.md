@@ -34,6 +34,7 @@ that users can register, subscribe to plans, manage, and access premium content 
 
 ## 🏗 worflow explanation
 
+```mermaid
 sequenceDiagram
     participant u as user
     participant f as next.js frontend
@@ -68,15 +69,16 @@ sequenceDiagram
     f->>db: verify subscription
     db-->>f: status active
     f-->>u: grant access to premium content
+```
 
 explanation:
 
-step 1: user signs up or logs in via supabase auth.
-step 2: dashboard access is protected; backend checks subscription status.
-step 3: clicking “subscribe” triggers a vercel function to create a stripe checkout session.
-step 4: user completes payment in stripe.
-step 5: stripe sends a webhook; backend updates supabase subscription status.
-step 6: user can now access premium content if subscription is active.
+- step 1: user signs up or logs in via supabase auth.
+- step 2: dashboard access is protected; backend checks subscription status.
+- step 3: clicking “subscribe” triggers a vercel function to create a stripe checkout session.
+- step 4: user completes payment in stripe.
+- step 5: stripe sends a webhook; backend updates supabase subscription status.
+- step 6: user can now access premium content if subscription is active.
 
 ## 🛠 local setup
 
